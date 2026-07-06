@@ -21,3 +21,7 @@ client-docs/
 .DS_Store
 Thumbs.db
 .vscode/
+*.lnk
+
+# Local-only tooling config
+.claude/settings.local.json
