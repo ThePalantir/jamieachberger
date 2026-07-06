@@ -1,0 +1,23 @@
+# Dependencies / build output
+node_modules/
+.next/
+dist/
+out/
+.vercel/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Private project notes / client docs
+_private/
+_notes/
+client-docs/
+*.docx
+~$*.docx
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/

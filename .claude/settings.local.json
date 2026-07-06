@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"c:/Projects/jamieachberger website/audit/screenshots\")",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(npx playwright *)",
+      "Bash(node audit/screenshot.js)",
+      "Bash(curl -sI --max-time 10 https://jamieachberger.com)",
+      "Bash(curl -sI --max-time 10 https://www.jamieachberger.com)",
+      "Bash(node audit/screenshot.js https://jamieachberger.com audit/screenshots)",
+      "Bash(mkdir -p ~/scripts)",
+      "Read(//c/Users/Five_/**)",
+      "Bash(cp \"c:/Projects/jamieachberger website/audit/screenshot.js\" ~/scripts/screenshot.js)",
+      "Read(//c/Users/Five_/scripts/**)",
+      "PowerShell(robocopy 'C:\\\\Projects\\\\jamieachberger website' 'C:\\\\Projects\\\\jamieachberger_website' /E /R:1 /W:1; Write-Output \"EXIT=$LASTEXITCODE\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Projects\\jamieachberger website\\audit"
+    ]
+  }
+}
