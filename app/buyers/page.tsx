@@ -87,7 +87,7 @@ export default function BuyersPage() {
       <Section variant="ink" width="wide">
         <p className="eyebrow">Buyer tools &amp; resources</p>
         <h2 style={{ marginBottom: 40 }}>Everything you need in one place</h2>
-        <LinkCards cards={resources} />
+        <LinkCards cards={resources} columns={3} />
       </Section>
 
       <CtaBand

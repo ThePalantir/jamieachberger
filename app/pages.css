@@ -236,6 +236,25 @@
   background: var(--hairline);
   border: 1px solid var(--hairline);
 }
+/* Explicit column counts so non-4-divisible card sets (e.g. 6) wrap evenly
+   instead of leaving empty orphan cells. */
+.link-cards--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.link-cards--cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 900px) {
+  .link-cards--cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .link-cards--cols-3,
+  .link-cards--cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
 .section--ink .link-cards {
   background: rgba(243, 239, 230, 0.12);
   border-color: rgba(243, 239, 230, 0.12);

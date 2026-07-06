@@ -48,11 +48,18 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 /** A grid of linked navigation cards (resources, next steps). */
 export function LinkCards({
   cards,
+  columns,
 }: {
   cards: { label: string; description: string; href: string; external?: boolean }[];
+  /** Force an explicit column count so card counts like 6 wrap evenly
+   *  (3+3) instead of leaving orphan cells. Omit to auto-fit. */
+  columns?: 2 | 3;
 }) {
+  const className = columns
+    ? `link-cards link-cards--cols-${columns}`
+    : "link-cards";
   return (
-    <div className="link-cards">
+    <div className={className}>
       {cards.map((card) =>
         card.external ? (
           <a key={card.href + card.label} href={card.href} className="link-card">
