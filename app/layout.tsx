@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda } from "next/font/google";
 import { Analytics } from "./components/Analytics";
+import { MotionObserver } from "./components/MotionObserver";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { analyticsConfig, siteConfig, siteUrl } from "./lib/site";
@@ -77,6 +78,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <MotionObserver />
         <Analytics />
       </body>
     </html>

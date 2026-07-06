@@ -4,13 +4,27 @@ import { siteConfig } from "../lib/site";
 export function Hero() {
   return (
     <section className="hero">
+      <div className="hero__media" aria-hidden="true">
+        <Image
+          src={siteConfig.assets.hero}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hero__image"
+        />
+        <div className="hero__scrim" />
+      </div>
+
       <div className="hero__content">
-        <div className="hero__kicker">Greater Lehigh Valley</div>
+        <p className="hero__kicker">
+          <span className="hero__kicker-line" aria-hidden="true" />
+          Greater Lehigh Valley
+        </p>
         <h1 className="hero__headline">
           Your Go-To Real Estate Team in the Greater Lehigh Valley{" "}
           <em>and beyond.</em>
         </h1>
-        <div className="hero__rule"></div>
         <p className="hero__subtext">
           It's not our first time. Not even the 100th. Over the years, we've
           helped hundreds sell and buy their homes.
@@ -27,17 +41,12 @@ export function Hero() {
           </a>
         </div>
       </div>
-      <div className="hero__visual">
-        <div className="hero__photo">
-          <Image
-            src={siteConfig.assets.hero}
-            alt="Aerial view of a Lehigh Valley residential neighborhood"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 56vw"
-            className="hero__image"
-          />
-        </div>
+
+      <div className="hero__foot" aria-hidden="true">
+        <span className="hero__foot-line" />
+        <span className="hero__foot-text">
+          Allentown · Bethlehem · Easton · Emmaus · Macungie
+        </span>
       </div>
     </section>
   );

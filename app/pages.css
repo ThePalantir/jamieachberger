@@ -98,6 +98,21 @@
   max-width: 1080px;
   margin: 0 auto;
 }
+/* Entrance echoes the homepage hero: eyebrow, title, rule, intro rise in
+   sequence. Uses the hero keyframes from components.css; reduced-motion
+   users see everything in place immediately. */
+.page-hero__eyebrow {
+  animation: hero-rise 800ms cubic-bezier(0.22, 1, 0.36, 1) 80ms both;
+}
+.page-hero__title {
+  animation: hero-rise 850ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both;
+}
+.page-hero__rule {
+  animation: hero-rise 850ms cubic-bezier(0.22, 1, 0.36, 1) 280ms both;
+}
+.page-hero__intro {
+  animation: hero-rise 850ms cubic-bezier(0.22, 1, 0.36, 1) 360ms both;
+}
 .page-hero__eyebrow {
   font-size: 11px;
   letter-spacing: 0.3em;
@@ -261,12 +276,15 @@
 }
 .link-card {
   background: var(--cream);
-  padding: 32px 30px 28px;
+  padding: 34px 30px 30px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   position: relative;
-  transition: background 200ms ease;
+  transition:
+    background 300ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .section--ink .link-card {
   background: var(--ink);
@@ -279,12 +297,24 @@
   width: 32px;
   height: 1px;
   background: var(--gold);
+  transition: width 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .link-card:hover {
-  background: #efe9dc;
+  background: #faf7f0;
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -26px rgba(23, 21, 15, 0.35);
+  z-index: 1;
+}
+.link-card:hover::before {
+  width: 72px;
 }
 .section--ink .link-card:hover {
-  background: #201d16;
+  background: #201c15;
+  box-shadow: 0 26px 48px -30px rgba(0, 0, 0, 0.7);
+}
+.link-card:hover .link-card__cue {
+  color: var(--gold-light);
+  letter-spacing: 0.16em;
 }
 .link-card__label {
   font-family: var(--font-display);
@@ -310,6 +340,7 @@
   color: var(--gold);
   font-weight: 600;
   margin-top: 6px;
+  transition: color 300ms ease, letter-spacing 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ---- Steps ---- */
@@ -366,19 +397,30 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 15px 30px;
+  padding: 16px 32px;
   border-radius: 0;
-  transition: all 200ms ease;
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
   cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
 }
 .btn--solid {
   background: var(--ink);
   color: var(--cream);
-  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
 }
 .btn--solid:hover {
   background: var(--ink-soft);
   color: var(--cream);
+  box-shadow: 0 14px 30px -16px rgba(23, 21, 15, 0.5);
 }
 .section--ink .btn--solid,
 .cta-band .btn--solid {
@@ -413,12 +455,31 @@
 
 /* ---- CTA band ---- */
 .cta-band {
+  position: relative;
   background: var(--ink);
   color: var(--cream);
   padding: 88px 48px;
   text-align: center;
+  overflow: hidden;
+}
+/* Same quiet gold atmosphere as the homepage closing CTA. */
+.cta-band::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -40%;
+  width: 720px;
+  height: 480px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(150, 118, 42, 0.13) 0%,
+    rgba(150, 118, 42, 0) 65%
+  );
+  pointer-events: none;
 }
 .cta-band__inner {
+  position: relative;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -426,6 +487,15 @@
   color: var(--cream);
   font-size: clamp(30px, 4.5vw, 40px);
   margin-bottom: 18px;
+}
+/* Centered gold hairline above the heading. */
+.cta-band__heading::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 30px;
 }
 .cta-band__heading em {
   font-style: italic;
@@ -459,8 +529,12 @@
 }
 .feature {
   background: var(--cream);
-  padding: 36px 32px 40px;
+  padding: 38px 32px 42px;
   position: relative;
+  transition:
+    background 300ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .section--ink .feature {
   background: var(--ink);
@@ -473,6 +547,15 @@
   width: 36px;
   height: 1px;
   background: var(--gold);
+  transition: width 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -26px rgba(23, 21, 15, 0.3);
+  z-index: 1;
+}
+.feature:hover::before {
+  width: 80px;
 }
 .feature__numeral {
   font-family: var(--font-display);
@@ -624,11 +707,13 @@
   accent-color: var(--gold);
 }
 .calc__result {
-  background: var(--ink);
+  background: linear-gradient(168deg, #1d1a13 0%, var(--ink) 55%);
   color: var(--cream);
-  padding: 36px 32px;
+  padding: 38px 32px;
   position: sticky;
   top: 96px;
+  border-top: 2px solid var(--gold);
+  box-shadow: 0 30px 60px -38px rgba(23, 21, 15, 0.55);
 }
 .calc__result-label {
   font-size: 12px;
@@ -771,4 +856,36 @@
   .site-footer__nav {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---- Scroll-reveal system ----
+   Only active when MotionObserver tags <html> with `has-motion` (JS present
+   and prefers-reduced-motion not set), so content is never hidden for no-JS
+   or reduced-motion visitors. The stagger delay lives in --reveal-delay and
+   is cleared by the observer after entrance so hover states stay instant. */
+.has-motion .offering,
+.has-motion .review-source,
+.has-motion .link-card,
+.has-motion .feature,
+.has-motion .step,
+.has-motion .team-member,
+.has-motion .contact-detail {
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 300ms ease,
+    border-color 300ms ease,
+    color 300ms ease;
+}
+
+.has-motion .offering:not(.is-in),
+.has-motion .review-source:not(.is-in),
+.has-motion .link-card:not(.is-in),
+.has-motion .feature:not(.is-in),
+.has-motion .step:not(.is-in),
+.has-motion .team-member:not(.is-in),
+.has-motion .contact-detail:not(.is-in) {
+  opacity: 0;
+  transform: translateY(20px);
 }

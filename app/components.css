@@ -1,7 +1,9 @@
 /* ============ SiteHeader ============ */
 .site-header {
   border-bottom: 1px solid var(--hairline);
-  background: var(--cream);
+  background: rgba(243, 239, 230, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -69,192 +71,225 @@
   color: var(--cream);
 }
 
-/* ============ Hero ============ */
+/* ============ Hero — full-bleed cinematic ============ */
+/* Entrance choreography: the image settles from a slow zoom while the
+   copy rises in sequence. All motion is CSS; the reduced-motion block in
+   globals.css disables every animation, and fill-mode `both` means the
+   elements simply render in place. */
+@keyframes hero-settle {
+  from {
+    transform: scale(1.07);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 44px;
+  }
+}
+
 .hero {
-  display: grid;
-  /* Image column is now the larger, dominant half of a full-viewport split. */
-  grid-template-columns: minmax(420px, 44%) 1fr;
-  gap: 0;
-  align-items: stretch;
-  background: var(--cream);
-  min-height: clamp(560px, 90vh, 880px);
+  position: relative;
+  min-height: clamp(600px, 92vh, 960px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__image {
+  object-fit: cover;
+  object-position: center 42%;
+  filter: saturate(1.05) contrast(1.03);
+  animation: hero-settle 7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
+}
+
+/* Layered scrim: ink rises from the lower-left where the copy sits, a
+   whisper of ink at the very top keeps the header seam clean, and the
+   golden-hour center stays bright. */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(23, 21, 15, 0.34) 0%,
+      rgba(23, 21, 15, 0) 22%
+    ),
+    linear-gradient(
+      76deg,
+      rgba(23, 21, 15, 0.86) 0%,
+      rgba(23, 21, 15, 0.55) 34%,
+      rgba(23, 21, 15, 0.08) 62%,
+      rgba(23, 21, 15, 0) 78%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(23, 21, 15, 0) 46%,
+      rgba(23, 21, 15, 0.62) 100%
+    );
 }
 
 .hero__content {
-  padding: 80px 60px 72px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 640px;
+  position: relative;
+  z-index: 1;
+  padding: 96px 64px 60px;
+  max-width: 880px;
 }
 
 .hero__kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   font-size: 11px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 26px;
+  color: var(--gold-light);
+  margin-bottom: 30px;
   font-weight: 600;
+  animation: hero-rise 900ms cubic-bezier(0.22, 1, 0.36, 1) 150ms both;
+}
+
+.hero__kicker-line {
+  display: inline-block;
+  height: 1px;
+  background: var(--gold);
+  animation: hero-line 1100ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
 }
 
 .hero__headline {
   font-family: var(--font-display);
-  font-size: 52px;
+  font-size: clamp(38px, 5.2vw, 68px);
   font-weight: 400;
-  line-height: 1.07;
-  margin-bottom: 30px;
-  color: var(--ink);
+  line-height: 1.06;
+  margin-bottom: 28px;
+  color: var(--cream);
+  max-width: 20ch;
+  text-shadow: 0 2px 28px rgba(23, 21, 15, 0.35);
+  animation: hero-rise 950ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
 }
 
 .hero__headline em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--gold-light);
   font-weight: 400;
 }
 
-.hero__rule {
-  width: 64px;
-  height: 1px;
-  background: var(--ink);
-  margin-bottom: 28px;
-}
-
 .hero__subtext {
-  font-size: 15px;
-  color: var(--ink-soft);
-  max-width: 40ch;
-  margin-bottom: 36px;
+  font-size: 16px;
+  color: rgba(243, 239, 230, 0.88);
+  max-width: 46ch;
+  margin-bottom: 40px;
   line-height: 1.75;
+  animation: hero-rise 950ms cubic-bezier(0.22, 1, 0.36, 1) 450ms both;
 }
 
 .hero__ctas {
   display: flex;
-  gap: 26px;
+  gap: 28px;
   align-items: center;
   flex-wrap: wrap;
+  animation: hero-rise 950ms cubic-bezier(0.22, 1, 0.36, 1) 600ms both;
 }
 
 .hero__btn {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 15px 30px;
+  padding: 17px 34px;
   border: none;
   border-radius: 0;
   font-weight: 600;
-  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
-  transition: all 200ms ease;
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 200ms ease;
 }
 
 .hero__btn:hover {
-  background: var(--ink-soft);
-  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #fbf8f1;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -16px rgba(23, 21, 15, 0.55);
 }
 
 .hero__btn:active {
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  box-shadow: 0 6px 14px -10px rgba(23, 21, 15, 0.5);
 }
 
 .hero__link {
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--cream);
   border-bottom: 1px solid var(--gold);
-  padding-bottom: 5px;
-  transition: color 200ms ease;
+  padding-bottom: 6px;
+  transition: color 200ms ease, border-color 200ms ease;
 }
 
 .hero__link:hover {
-  color: var(--gold);
+  color: var(--gold-light);
+  border-bottom-color: var(--gold-light);
 }
 
-.hero__visual {
+/* Hairline footer strip grounding the hero in its real geography. */
+.hero__foot {
   position: relative;
-  /* Full-bleed cinematic panel: the image fills the entire column, edge to
-     edge and top to bottom, rather than sitting inside a padded plate. */
-  padding: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 64px 28px;
+  animation: hero-rise 950ms cubic-bezier(0.22, 1, 0.36, 1) 750ms both;
 }
 
-/* A single thin gold seam where the cream text field meets the image —
-   the editorial framing nod, without confining the photo. */
-.hero__visual::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 1px;
-  background: var(--gold);
-  z-index: 2;
+.hero__foot-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(243, 239, 230, 0.28);
 }
 
-.hero__photo {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    #40506b 0%,
-    #26314a 42%,
-    #171d2e 100%
-  );
-}
-
-.hero__image {
-  object-fit: cover;
-  object-position: center 45%;
-  /* Let the golden-hour light read bright and warm; the previous treatment
-     dimmed it to ~82% and dulled the color into something muddy. */
-  filter: saturate(1.04) contrast(1.02);
-}
-
-/* Whisper of depth on the seam side only, so the gold line reads and the
-   panel gains dimension — no full-frame darkening over the image. */
-.hero__photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(23, 21, 15, 0.16) 0%,
-    rgba(23, 21, 15, 0) 20%
-  );
-  pointer-events: none;
+.hero__foot-text {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 239, 230, 0.66);
+  white-space: nowrap;
 }
 
 @media (max-width: 1024px) {
   .hero {
-    grid-template-columns: 1fr;
-    min-height: 0;
+    min-height: clamp(540px, 84vh, 760px);
   }
 
   .hero__content {
-    padding: 56px 36px;
-    max-width: none;
-  }
-
-  /* Full-width cinematic band when the layout stacks. */
-  .hero__visual {
-    height: 46vh;
-    min-height: 320px;
-    max-height: 520px;
-  }
-
-  /* Seam becomes a horizontal gold hairline above the band. */
-  .hero__visual::before {
-    top: 0;
-    bottom: auto;
-    left: 0;
-    right: 0;
-    width: auto;
-    height: 1px;
-  }
-
-  .hero__headline {
-    font-size: 40px;
+    padding: 80px 36px 48px;
   }
 }
 
@@ -281,19 +316,34 @@
     display: inline-flex;
   }
 
+  /* Mobile hero: full-bleed and intentional, capped so the copy owns the
+     frame without demanding endless scroll. */
+  .hero {
+    min-height: min(88svh, 720px);
+  }
+
   .hero__content {
-    padding: 40px 18px;
+    padding: 72px 22px 36px;
   }
 
-  /* Cinematic full-bleed band, capped so it stays clean and not too tall. */
-  .hero__visual {
-    height: 40vh;
-    min-height: 240px;
-    max-height: 340px;
+  .hero__scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(23, 21, 15, 0.38) 0%,
+        rgba(23, 21, 15, 0.02) 24%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(23, 21, 15, 0) 30%,
+        rgba(23, 21, 15, 0.55) 58%,
+        rgba(23, 21, 15, 0.88) 100%
+      );
   }
 
-  .hero__headline {
-    font-size: 28px;
+  .hero__subtext {
+    font-size: 15px;
+    margin-bottom: 32px;
   }
 
   .hero__ctas {
@@ -306,6 +356,17 @@
   .hero__link {
     text-align: center;
     width: 100%;
+  }
+
+  .hero__foot {
+    padding: 0 22px 20px;
+  }
+
+  .hero__foot-text {
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    white-space: normal;
+    text-align: right;
   }
 }
 
@@ -354,11 +415,15 @@
 
 .offering {
   background: var(--ink);
-  padding: 40px 40px 44px;
+  padding: 44px 40px 48px;
   position: relative;
+  transition:
+    background 350ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Gold hairline top rule echoing the testimonial treatment. */
+/* Gold hairline top rule that draws longer on hover. */
 .offering::before {
   content: "";
   position: absolute;
@@ -367,6 +432,18 @@
   width: 40px;
   height: 1px;
   background: var(--gold);
+  transition: width 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.offering:hover {
+  background: #201c15;
+  transform: translateY(-4px);
+  box-shadow: 0 26px 48px -30px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.offering:hover::before {
+  width: 88px;
 }
 
 .offering__numeral {
@@ -378,6 +455,11 @@
   color: var(--gold);
   margin-bottom: 22px;
   letter-spacing: 0.04em;
+  transition: color 350ms ease;
+}
+
+.offering:hover .offering__numeral {
+  color: var(--gold-light);
 }
 
 .offering__title {
@@ -455,14 +537,22 @@
   flex-direction: column;
   gap: 14px;
   min-height: 178px;
-  padding: 32px;
+  padding: 34px 32px;
   background: var(--cream);
   border-top: 3px solid var(--gold);
-  transition: background-color 200ms ease, color 200ms ease;
+  transition:
+    background-color 300ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease;
 }
 
 .review-source:hover {
-  background: rgba(232, 226, 213, 0.42);
+  background: #faf7f0;
+  border-top-color: var(--gold-light);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -26px rgba(23, 21, 15, 0.35);
+  z-index: 1;
 }
 
 .review-source__label {
@@ -494,10 +584,29 @@
 
 /* ============ Closing CTA ============ */
 .closing-cta {
+  position: relative;
   background: var(--ink);
   color: var(--cream);
   padding: 96px 48px;
   text-align: center;
+  overflow: hidden;
+}
+
+/* Faint gold atmosphere behind the closing message — depth, not decoration. */
+.closing-cta::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -40%;
+  width: 720px;
+  height: 480px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(150, 118, 42, 0.14) 0%,
+    rgba(150, 118, 42, 0) 65%
+  );
+  pointer-events: none;
 }
 
 .closing-cta__inner {
@@ -536,16 +645,19 @@
   font-size: 13px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 15px 32px;
+  padding: 16px 34px;
   font-weight: 600;
   border-radius: 0;
-  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
-  transition: all 200ms ease;
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 200ms ease;
 }
 
 .closing-cta__btn:hover {
-  background: var(--hairline);
-  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #fbf8f1;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -16px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 768px) {
