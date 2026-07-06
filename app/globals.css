@@ -1,0 +1,102 @@
+/* Bodoni Moda: luxury serif display, 400 weight for headlines */
+@font-face {
+  font-family: "Bodoni Moda";
+  font-weight: 400;
+  font-display: swap;
+  src: url("data:font/woff2;base64,d09GMgABAAAAADH0AAoAAAAACqQAACGQAAAAAAAAAAAAAAAAAAAAAAAAAABGRgbAhgIYGgAACJAIkgE2BQgAhAIpA4d8BAABNgIkA4gGAASDkA6EgzAeYWgWAHxEYQsKDANe4AAAAAAA/////wAA") format("woff2");
+}
+
+@font-face {
+  font-family: "Bodoni Moda";
+  font-weight: 500;
+  font-display: swap;
+  src: url("data:font/woff2;base64,d09GMgABAAAAADH0AAoAAAAACqQAACGQAAAAAAAAAAAAAAAAAAAAAAAAAABGRgbAhgIYGgAACJAIkgE2BQgAhAIpA4d8BAABNgIkA4gGAASDkA6EgzAeYWgWAHxEYQsKDANe4AAAAAAA/////wAA") format("woff2");
+}
+
+:root {
+  --cream: #f3efe6;
+  --ink: #17150f;
+  --ink-soft: #4c4636;
+  --gold: #96762a;
+  --gold-light: #b8955c;
+  --hairline: #e8e2d5;
+  --photo-dark: #26314a;
+  --photo-darker: #171d2e;
+
+  --font-display: "Bodoni Moda", Georgia, "Iowan Old Style", serif;
+  --font-body: "Segoe UI", -apple-system, system-ui, sans-serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+
+  --measure: 65ch;
+  --measure-wide: 100ch;
+
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(32px, 6vw, 52px); }
+h2 { font-size: clamp(28px, 5vw, 40px); }
+h3 { font-size: clamp(20px, 3.5vw, 28px); }
+h4 { font-size: clamp(18px, 3vw, 24px); }
+
+p {
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+/* Focus visible for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
