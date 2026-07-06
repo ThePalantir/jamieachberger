@@ -16,7 +16,7 @@ export function Positioning() {
 
         <div className="offerings">
           <div className="offering">
-            <div className="offering__icon">🔍</div>
+            <span className="offering__numeral">I</span>
             <h3 className="offering__title">Trusted Service</h3>
             <p className="offering__text">
               We will answer any questions you may have about your next sale or
@@ -25,7 +25,7 @@ export function Positioning() {
           </div>
 
           <div className="offering">
-            <div className="offering__icon">✨</div>
+            <span className="offering__numeral">II</span>
             <h3 className="offering__title">Hassle-Free Experience</h3>
             <p className="offering__text">
               No need to stress yourself. Let us handle the legwork and make
@@ -34,7 +34,7 @@ export function Positioning() {
           </div>
 
           <div className="offering">
-            <div className="offering__icon">🌍</div>
+            <span className="offering__numeral">III</span>
             <h3 className="offering__title">Top Marketing Tools</h3>
             <p className="offering__text">
               We provide you with all the tools you need. We are all in from
@@ -43,11 +43,11 @@ export function Positioning() {
           </div>
 
           <div className="offering">
-            <div className="offering__icon">⭐</div>
+            <span className="offering__numeral">IV</span>
             <h3 className="offering__title">Proven Track Record</h3>
             <p className="offering__text">
-              It's not our first time. Not even the 100th. Over the years,
-              we've helped hundreds sell and buy their homes.
+              We've helped hundreds of families buy and sell across the Greater
+              Lehigh Valley over the years — and we want to help you too.
             </p>
           </div>
         </div>

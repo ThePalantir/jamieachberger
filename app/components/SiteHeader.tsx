@@ -14,6 +14,9 @@ export function SiteHeader() {
           <a href="#sellers">Sellers</a>
           <a href="#contact">Contact</a>
         </nav>
+        <a href="#contact" className="site-header__contact-mobile">
+          Contact
+        </a>
       </div>
     </header>
   );

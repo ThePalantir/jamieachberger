@@ -2,9 +2,9 @@ export function Hero() {
   return (
     <section className="hero">
       <div className="hero__content">
-        <div className="hero__kicker">Greater Lehigh Valley · Est. representation</div>
+        <div className="hero__kicker">Greater Lehigh Valley</div>
         <h1 className="hero__headline">
-          Your Go-To Real Estate Team in the Greater Lehigh Valley
+          Your Go-To Real Estate Team in the Greater Lehigh Valley{" "}
           <em>and beyond.</em>
         </h1>
         <div className="hero__rule"></div>
@@ -27,7 +27,6 @@ export function Hero() {
             Aerial neighborhood view, dusk light grade
           </div>
         </div>
-        <div className="hero__frame"></div>
       </div>
     </section>
   );
