@@ -1,8 +1,41 @@
-import { siteConfig } from "../lib/site";
+import Link from "next/link";
+import { footerNav, routes, siteConfig } from "../lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer" id="contact">
+    <footer className="site-footer">
+      <div className="site-footer__top">
+        <div className="site-footer__brand">
+          <Link href={routes.home} className="site-footer__logo">
+            The Jamie Achberger Group
+          </Link>
+          <p className="site-footer__tagline">
+            Real estate in the {siteConfig.region} and beyond.
+          </p>
+          <div className="site-footer__social">
+            <a href={siteConfig.social.facebook}>Facebook</a>
+            <a href={siteConfig.social.instagram}>Instagram</a>
+            <a href={siteConfig.social.youtube}>YouTube</a>
+            <a href={siteConfig.social.linkedin}>LinkedIn</a>
+          </div>
+        </div>
+
+        <nav className="site-footer__nav" aria-label="Footer">
+          {footerNav.map((column) => (
+            <div key={column.heading} className="site-footer__column">
+              <h4 className="site-footer__heading">{column.heading}</h4>
+              <ul>
+                {column.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </div>
+
       <div className="site-footer__contact">
         <div className="contact-block">
           <h4 className="contact-label">Direct</h4>
@@ -26,13 +59,6 @@ export function SiteFooter() {
           <h4 className="contact-label">Address</h4>
           <p className="contact-text">{siteConfig.contact.address}</p>
         </div>
-      </div>
-
-      <div className="site-footer__social">
-        <a href={siteConfig.social.facebook}>Facebook</a>
-        <a href={siteConfig.social.instagram}>Instagram</a>
-        <a href={siteConfig.social.youtube}>YouTube</a>
-        <a href={siteConfig.social.linkedin}>LinkedIn</a>
       </div>
 
       <div className="site-footer__compliance">

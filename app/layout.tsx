@@ -1,8 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda } from "next/font/google";
 import { Analytics } from "./components/Analytics";
+import { SiteHeader } from "./components/SiteHeader";
+import { SiteFooter } from "./components/SiteFooter";
 import { analyticsConfig, siteConfig, siteUrl } from "./lib/site";
 import "./globals.css";
+import "./components.css";
+import "./pages.css";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -67,7 +71,12 @@ export default function RootLayout({
         <meta name="theme-color" content="#f3efe6" />
       </head>
       <body>
-        {children}
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <SiteHeader />
+        <main id="main">{children}</main>
+        <SiteFooter />
         <Analytics />
       </body>
     </html>
