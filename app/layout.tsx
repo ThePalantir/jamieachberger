@@ -1,5 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import { Bodoni_Moda } from "next/font/google";
 import "./globals.css";
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-bodoni",
+});
 
 export const metadata: Metadata = {
   title: "The Jamie Achberger Group | Real Estate, Lehigh Valley",
@@ -19,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={bodoni.variable}>
       <head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#f3efe6" />

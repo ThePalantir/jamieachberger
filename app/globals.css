@@ -1,17 +1,6 @@
-/* Bodoni Moda: luxury serif display, 400 weight for headlines */
-@font-face {
-  font-family: "Bodoni Moda";
-  font-weight: 400;
-  font-display: swap;
-  src: url("data:font/woff2;base64,d09GMgABAAAAADH0AAoAAAAACqQAACGQAAAAAAAAAAAAAAAAAAAAAAAAAABGRgbAhgIYGgAACJAIkgE2BQgAhAIpA4d8BAABNgIkA4gGAASDkA6EgzAeYWgWAHxEYQsKDANe4AAAAAAA/////wAA") format("woff2");
-}
-
-@font-face {
-  font-family: "Bodoni Moda";
-  font-weight: 500;
-  font-display: swap;
-  src: url("data:font/woff2;base64,d09GMgABAAAAADH0AAoAAAAACqQAACGQAAAAAAAAAAAAAAAAAAAAAAAAAABGRgbAhgIYGgAACJAIkgE2BQgAhAIpA4d8BAABNgIkA4gGAASDkA6EgzAeYWgWAHxEYQsKDANe4AAAAAAA/////wAA") format("woff2");
-}
+/* Bodoni Moda (luxury serif display) is loaded via next/font/google in
+   app/layout.tsx, which self-hosts the font at build time and exposes it
+   through the --font-bodoni CSS variable consumed below. */
 
 :root {
   --cream: #f3efe6;
@@ -23,7 +12,7 @@
   --photo-dark: #26314a;
   --photo-darker: #171d2e;
 
-  --font-display: "Bodoni Moda", Georgia, "Iowan Old Style", serif;
+  --font-display: var(--font-bodoni), Georgia, "Iowan Old Style", serif;
   --font-body: "Segoe UI", -apple-system, system-ui, sans-serif;
   --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
 
