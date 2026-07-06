@@ -34,7 +34,7 @@ export function Hero() {
             alt="Aerial view of a Lehigh Valley residential neighborhood"
             fill
             priority
-            sizes="(max-width: 1024px) calc(100vw - 72px), 40vw"
+            sizes="(max-width: 1024px) 100vw, 56vw"
             className="hero__image"
           />
         </div>

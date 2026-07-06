@@ -72,14 +72,20 @@
 /* ============ Hero ============ */
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  /* Image column is now the larger, dominant half of a full-viewport split. */
+  grid-template-columns: minmax(420px, 44%) 1fr;
   gap: 0;
-  align-items: center;
+  align-items: stretch;
   background: var(--cream);
+  min-height: clamp(560px, 90vh, 880px);
 }
 
 .hero__content {
-  padding: 72px 48px 64px 48px;
+  padding: 80px 60px 72px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
 }
 
 .hero__kicker {
@@ -167,53 +173,84 @@
 
 .hero__visual {
   position: relative;
-  /* Extra clearance on all sides so the offset keyline reads as a
-     deliberately mounted plate, not a stray border. Left is tighter to
-     keep the photo pulled toward the page center. */
-  padding: 56px 56px 56px 24px;
+  /* Full-bleed cinematic panel: the image fills the entire column, edge to
+     edge and top to bottom, rather than sitting inside a padded plate. */
+  padding: 0;
+}
+
+/* A single thin gold seam where the cream text field meets the image —
+   the editorial framing nod, without confining the photo. */
+.hero__visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: var(--gold);
+  z-index: 2;
 }
 
 .hero__photo {
-  position: relative;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  min-height: 460px;
   background: linear-gradient(
     180deg,
     #40506b 0%,
     #26314a 42%,
     #171d2e 100%
   );
-  /* Single offset keyline framing the photo like a plate mount. */
-  outline: 1px solid var(--ink);
-  outline-offset: 12px;
 }
 
 .hero__image {
   object-fit: cover;
-  filter: saturate(0.85) contrast(1.08) brightness(0.82);
+  object-position: center 45%;
+  /* Let the golden-hour light read bright and warm; the previous treatment
+     dimmed it to ~82% and dulled the color into something muddy. */
+  filter: saturate(1.04) contrast(1.02);
 }
 
+/* Whisper of depth on the seam side only, so the gold line reads and the
+   panel gains dimension — no full-frame darkening over the image. */
 .hero__photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(23, 21, 15, 0.08), rgba(23, 21, 15, 0.24)),
-    linear-gradient(180deg, transparent 55%, rgba(150, 118, 42, 0.28));
+  background: linear-gradient(
+    90deg,
+    rgba(23, 21, 15, 0.16) 0%,
+    rgba(23, 21, 15, 0) 20%
+  );
   pointer-events: none;
 }
 
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
+    min-height: 0;
   }
 
   .hero__content {
     padding: 56px 36px;
+    max-width: none;
   }
 
+  /* Full-width cinematic band when the layout stacks. */
   .hero__visual {
-    padding: 40px 36px;
+    height: 46vh;
+    min-height: 320px;
+    max-height: 520px;
+  }
+
+  /* Seam becomes a horizontal gold hairline above the band. */
+  .hero__visual::before {
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 1px;
   }
 
   .hero__headline {
@@ -248,18 +285,15 @@
     padding: 40px 18px;
   }
 
+  /* Cinematic full-bleed band, capped so it stays clean and not too tall. */
   .hero__visual {
-    padding: 24px 18px;
+    height: 40vh;
+    min-height: 240px;
+    max-height: 340px;
   }
 
   .hero__headline {
     font-size: 28px;
-  }
-
-  .hero__photo {
-    /* Shortened so the placeholder doesn't eat a full mobile viewport. */
-    min-height: 200px;
-    outline-offset: 7px;
   }
 
   .hero__ctas {
