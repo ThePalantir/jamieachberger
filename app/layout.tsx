@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda } from "next/font/google";
+import { Analytics } from "./components/Analytics";
+import { analyticsConfig, siteConfig, siteUrl } from "./lib/site";
 import "./globals.css";
 
 const bodoni = Bodoni_Moda({
@@ -11,9 +13,40 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  title: "The Jamie Achberger Group | Real Estate, Lehigh Valley",
-  description:
-    "Your go-to real estate team in the Greater Lehigh Valley and beyond. Buying, selling, or getting a free home value report.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "The Jamie Achberger Group | Greater Lehigh Valley Real Estate",
+    template: "%s | The Jamie Achberger Group",
+  },
+  description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "The Jamie Achberger Group | Greater Lehigh Valley Real Estate",
+    description: siteConfig.description,
+    url: siteUrl,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.assets.socialPreview,
+        width: 1200,
+        height: 630,
+        alt: "The Jamie Achberger Group, brokered by EXP Realty, LLC",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Jamie Achberger Group | Greater Lehigh Valley Real Estate",
+    description: siteConfig.description,
+    images: [siteConfig.assets.socialPreview],
+  },
+  verification: analyticsConfig.googleSiteVerification
+    ? { google: analyticsConfig.googleSiteVerification }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -33,7 +66,10 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#f3efe6" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

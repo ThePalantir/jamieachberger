@@ -1,16 +1,21 @@
+import { siteConfig } from "../lib/site";
+
 export function Reviews() {
-  const testimonials = [
+  const reviewSources = [
     {
-      quote: "Quick and effortless!",
-      author: "Recent Lehigh Valley seller",
+      label: "Google Reviews",
+      description: "Read current client reviews and public ratings.",
+      href: siteConfig.links.googleReviews,
     },
     {
-      quote: "Jamie made the entire process smooth and transparent.",
-      author: "Buyer, Allentown",
+      label: "Realtor.com Profile",
+      description: "View Jamie's verified agent profile and license source.",
+      href: siteConfig.links.realtorProfile,
     },
     {
-      quote: "The best experience we could have asked for.",
-      author: "Sellers, Bethlehem",
+      label: "Meet The Team",
+      description: "Learn more about the Jamie Achberger Group.",
+      href: siteConfig.links.meetTheTeam,
     },
   ];
 
@@ -18,12 +23,17 @@ export function Reviews() {
     <section className="reviews">
       <div className="reviews__inner">
         <h2 className="reviews__heading">What Our Clients Say About Us!</h2>
-        <div className="testimonials">
-          {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="testimonial">
-              <p className="testimonial__quote">"{testimonial.quote}"</p>
-              <p className="testimonial__author">— {testimonial.author}</p>
-            </div>
+        <p className="reviews__intro">
+          Real client feedback is linked directly to its public source.
+        </p>
+        <div className="review-sources">
+          {reviewSources.map((source) => (
+            <a key={source.label} href={source.href} className="review-source">
+              <span className="review-source__label">{source.label}</span>
+              <span className="review-source__description">
+                {source.description}
+              </span>
+            </a>
           ))}
         </div>
       </div>

@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { siteConfig } from "../lib/site";
+
 export function Hero() {
   return (
     <section className="hero">
@@ -13,19 +16,27 @@ export function Hero() {
           helped hundreds sell and buy their homes.
         </p>
         <div className="hero__ctas">
-          <button className="hero__btn hero__btn--primary">
+          <a
+            href={siteConfig.links.homeValueReport}
+            className="hero__btn hero__btn--primary"
+          >
             Free Home Value Report
-          </button>
-          <a href="#search" className="hero__link">
+          </a>
+          <a href={siteConfig.links.searchHomes} className="hero__link">
             Start Your Search
           </a>
         </div>
       </div>
       <div className="hero__visual">
         <div className="hero__photo">
-          <div className="hero__photo-placeholder">
-            Aerial neighborhood view, dusk light grade
-          </div>
+          <Image
+            src={siteConfig.assets.hero}
+            alt="Aerial view of a Lehigh Valley residential neighborhood"
+            fill
+            priority
+            sizes="(max-width: 1024px) calc(100vw - 72px), 40vw"
+            className="hero__image"
+          />
         </div>
       </div>
     </section>

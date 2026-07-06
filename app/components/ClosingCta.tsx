@@ -1,3 +1,5 @@
+import { siteConfig } from "../lib/site";
+
 export function ClosingCta() {
   return (
     <section className="closing-cta">
@@ -10,7 +12,9 @@ export function ClosingCta() {
           Just Like Yours
         </p>
         <div className="closing-cta__ctas">
-          <button className="closing-cta__btn">Contact Us</button>
+          <a href={siteConfig.links.contact} className="closing-cta__btn">
+            Contact Us
+          </a>
         </div>
       </div>
     </section>
