@@ -101,18 +101,22 @@ export default function MeetTheTeamPage() {
         <div className="team-grid">
           {teamMembers.map((member) => (
             <article key={member.name} className="team-member">
-              <div className="team-member__photo">
-                <Image
-                  src={member.image}
-                  alt={member.imageAlt}
-                  fill
-                  sizes="(max-width: 900px) calc(100vw - 96px), 360px"
-                  className="team-member__image"
-                />
+              <div className="team-member__header">
+                <div className="team-member__photo">
+                  <Image
+                    src={member.image}
+                    alt={member.imageAlt}
+                    fill
+                    sizes="(max-width: 900px) 150px, 150px"
+                    className="team-member__image"
+                  />
+                </div>
+                <div className="team-member__identity">
+                  <h3 className="team-member__name">{member.name}</h3>
+                  <p className="team-member__role">{member.role}</p>
+                </div>
               </div>
-              <div className="team-member__content">
-                <h3 className="team-member__name">{member.name}</h3>
-                <p className="team-member__role">{member.role}</p>
+              <div className="team-member__body">
                 {member.bio.map((paragraph) => (
                   <p key={paragraph} className="team-member__bio">
                     {paragraph}
