@@ -55,12 +55,16 @@ export default function SearchListingsPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open MLS Search
+              Open Live MLS Search
             </a>
             <a href={routes.contact} className="btn btn--ghost">
               Set Up a Custom Search
             </a>
           </div>
+          <p className="notice__support">
+            Opens the current live MLS search in a new tab while IDX is being
+            connected here.
+          </p>
         </div>
 
         <div className="prose" style={{ marginTop: 48 }}>

@@ -784,6 +784,10 @@
   line-height: 1.7;
   color: var(--ink-soft);
 }
+.notice__support {
+  margin-top: 14px;
+  max-width: 58ch;
+}
 
 /* ---- Team ---- */
 .team-grid {
