@@ -788,29 +788,67 @@
 /* ---- Team ---- */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 44px;
 }
 .team-member {
-  border-top: 1px solid var(--hairline);
-  padding-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.82fr) 1fr;
+  gap: 30px;
+  align-items: start;
+  border-top: 2px solid var(--gold);
+  background: linear-gradient(145deg, #1f1b14 0%, #14120d 100%);
+  padding: 28px;
+  box-shadow: 0 24px 48px -34px rgba(0, 0, 0, 0.82);
+}
+.team-member__photo {
+  position: relative;
+  aspect-ratio: 1 / 1.08;
+  overflow: hidden;
+  background: #272219;
+  outline: 1px solid rgba(243, 239, 230, 0.18);
+}
+.team-member__image {
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.96) contrast(1.04) brightness(1.03);
+}
+.team-member__content {
+  min-width: 0;
 }
 .team-member__name {
-  font-size: 22px;
-  margin-bottom: 4px;
+  font-size: clamp(30px, 3vw, 36px);
+  line-height: 1.08;
+  margin-bottom: 10px;
 }
 .team-member__role {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 14px;
+  font-weight: 800;
+  margin-bottom: 22px;
 }
 .team-member__bio {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 19px;
+  line-height: 1.82;
   color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.team-member__bio:last-child {
+  margin-bottom: 0;
+}
+.team-member__bio strong {
+  font-weight: 800;
+}
+.section--ink .team-member__name {
+  color: var(--cream);
+}
+.section--ink .team-member__bio {
+  color: rgba(243, 239, 230, 0.92);
+}
+.section--ink .team-member__bio strong {
+  color: #fff7df;
 }
 
 /* ---- Responsive ---- */
@@ -829,6 +867,9 @@
   }
   .calc__result {
     position: static;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -849,6 +890,25 @@
   .step {
     grid-template-columns: 48px 1fr;
     gap: 16px;
+  }
+  .team-member {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+  .team-member__photo {
+    aspect-ratio: 1.18 / 1;
+  }
+  .team-member__name {
+    font-size: 28px;
+  }
+  .team-member__role {
+    font-size: 12.5px;
+    margin-bottom: 18px;
+  }
+  .team-member__bio {
+    font-size: 17px;
+    line-height: 1.76;
   }
 }
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero, Section, CtaBand } from "../components/ui";
 import { routes, siteConfig } from "../lib/site";
 
@@ -13,6 +14,8 @@ const teamMembers = [
   {
     name: "Jamie Achberger",
     role: "Team Leader, PA Realtor®",
+    image: "/images/team/jamie-achberger.png",
+    imageAlt: "Jamie Achberger, Team Leader, PA Realtor",
     bio: [
       "Jamie began her real estate journey in 2009 and has built her work around steady guidance, honest communication, and helping clients feel confident through every step of the move.",
       "As a single parent who raised two sons, she understands how much a home matters beyond the transaction itself. Her experience and network help buyers and sellers move with clarity across the Greater Lehigh Valley and beyond.",
@@ -22,6 +25,8 @@ const teamMembers = [
   {
     name: "Valerie Valianatos",
     role: "PA Realtor®",
+    image: "/images/team/valerie-valianatos.png",
+    imageAlt: "Valerie Valianatos, PA Realtor",
     bio: [
       "Valerie brings honest advice and practical guidance to first-time buyers, experienced homeowners, and investors alike.",
       "Outside real estate, she enjoys new restaurants, Topgolf, and making the process feel approachable for every client she serves.",
@@ -32,6 +37,8 @@ const teamMembers = [
   {
     name: "Angela Wehbey",
     role: "PA Realtor®",
+    image: "/images/team/angela-wehbey.png",
+    imageAlt: "Angela Wehbey, PA Realtor",
     bio: [
       "Angela's approach to real estate is built on heart, hustle, and meaningful relationships. Her background in sales, business management, and customer service gives clients a knowledgeable, personal advocate.",
       "With Whitehall roots and the ability to serve clients who speak Greek, Angela brings local perspective and connection to the buying and selling process.",
@@ -41,6 +48,8 @@ const teamMembers = [
   {
     name: "Nathan Seibert",
     role: "PA Realtor®",
+    image: "/images/team/nathan-seibert.png",
+    imageAlt: "Nathan Seibert, PA Realtor",
     bio: [
       "Born and raised in the Lehigh Valley, Nathan brings a competitive spirit, calm confidence, and clear communication to every real estate experience.",
       "His athletic background shows up in the way he stays focused under pressure, keeps clients grounded, and helps the process feel organized from start to finish.",
@@ -92,16 +101,27 @@ export default function MeetTheTeamPage() {
         <div className="team-grid">
           {teamMembers.map((member) => (
             <article key={member.name} className="team-member">
-              <h3 className="team-member__name">{member.name}</h3>
-              <p className="team-member__role">{member.role}</p>
-              {member.bio.map((paragraph) => (
-                <p key={paragraph} className="team-member__bio">
-                  {paragraph}
+              <div className="team-member__photo">
+                <Image
+                  src={member.image}
+                  alt={member.imageAlt}
+                  fill
+                  sizes="(max-width: 900px) calc(100vw - 96px), 360px"
+                  className="team-member__image"
+                />
+              </div>
+              <div className="team-member__content">
+                <h3 className="team-member__name">{member.name}</h3>
+                <p className="team-member__role">{member.role}</p>
+                {member.bio.map((paragraph) => (
+                  <p key={paragraph} className="team-member__bio">
+                    {paragraph}
+                  </p>
+                ))}
+                <p className="team-member__bio">
+                  <strong>{member.note}</strong>
                 </p>
-              ))}
-              <p className="team-member__bio">
-                <strong>{member.note}</strong>
-              </p>
+              </div>
             </article>
           ))}
         </div>
