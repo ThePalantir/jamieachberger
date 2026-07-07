@@ -40,8 +40,8 @@
 }
 
 .site-footer__tagline {
-  font-size: 14px;
-  color: rgba(243, 239, 230, 0.75);
+  font-size: 14.5px;
+  color: rgba(243, 239, 230, 0.8);
   margin-bottom: 20px;
   max-width: 34ch;
 }
@@ -52,8 +52,8 @@
   flex-wrap: wrap;
 }
 .site-footer__social a {
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold-light);
 }
@@ -68,8 +68,8 @@
 }
 .site-footer__heading {
   font-family: var(--font-body);
-  font-size: 12px;
-  letter-spacing: 0.16em;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold-light);
   margin-bottom: 16px;
@@ -78,11 +78,11 @@
 .site-footer__nav ul {
   list-style: none;
   display: grid;
-  gap: 10px;
+  gap: 11px;
 }
 .site-footer__nav a {
-  font-size: 14px;
-  color: rgba(243, 239, 230, 0.82);
+  font-size: 14.5px;
+  color: rgba(243, 239, 230, 0.86);
 }
 .site-footer__nav a:hover {
   color: var(--cream);
@@ -114,8 +114,8 @@
   animation: hero-rise 850ms cubic-bezier(0.22, 1, 0.36, 1) 360ms both;
 }
 .page-hero__eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.3em;
+  font-size: 12.5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 600;
@@ -167,8 +167,8 @@
 }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.28em;
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 600;
@@ -325,8 +325,8 @@
   color: var(--cream);
 }
 .link-card__description {
-  font-size: 14.5px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.68;
   color: var(--ink-soft);
   flex: 1;
 }
@@ -334,8 +334,8 @@
   color: rgba(243, 239, 230, 0.8);
 }
 .link-card__cue {
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 600;
@@ -393,8 +393,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
   padding: 16px 32px;
@@ -589,8 +589,8 @@
   padding: 20px 0;
 }
 .contact-detail__label {
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 600;
@@ -716,8 +716,8 @@
   box-shadow: 0 30px 60px -38px rgba(23, 21, 15, 0.55);
 }
 .calc__result-label {
-  font-size: 12px;
-  letter-spacing: 0.16em;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold-light);
   margin-bottom: 12px;
@@ -731,9 +731,9 @@
   font-variant-numeric: tabular-nums;
 }
 .calc__result-note {
-  font-size: 13px;
-  line-height: 1.6;
-  color: rgba(243, 239, 230, 0.7);
+  font-size: 13.5px;
+  line-height: 1.62;
+  color: rgba(243, 239, 230, 0.75);
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid rgba(243, 239, 230, 0.14);
@@ -748,8 +748,8 @@
 .calc__breakdown-row {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  color: rgba(243, 239, 230, 0.82);
+  font-size: 14.5px;
+  color: rgba(243, 239, 230, 0.86);
 }
 .calc__breakdown-row strong {
   color: var(--cream);
@@ -758,8 +758,8 @@
 }
 
 .disclaimer {
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 13.5px;
+  line-height: 1.72;
   color: var(--ink-soft);
   max-width: 70ch;
   margin-top: 40px;

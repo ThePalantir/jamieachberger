@@ -20,8 +20,8 @@
 
 .site-header__logo {
   font-family: var(--font-display);
-  font-size: 15px;
-  letter-spacing: 0.08em;
+  font-size: 17px;
+  letter-spacing: 0.07em;
   font-weight: 500;
   color: var(--ink);
 }
@@ -34,35 +34,35 @@
 
 .site-header__nav {
   display: flex;
-  gap: 30px;
+  gap: 28px;
 }
 
 .site-header__nav a {
-  font-size: 12px;
-  letter-spacing: 0.16em;
+  font-size: 13.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  font-weight: 500;
+  color: var(--ink);
+  font-weight: 600;
   border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
   transition: color 200ms ease, border-color 200ms ease;
 }
 
 .site-header__nav a:hover {
-  color: var(--ink);
+  color: var(--gold);
   border-bottom-color: var(--gold);
 }
 
 /* Mobile-only compact Contact action; hidden on wider viewports */
 .site-header__contact-mobile {
   display: none;
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
   font-weight: 600;
   border: 1px solid var(--ink);
-  padding: 8px 16px;
+  padding: 9px 17px;
   white-space: nowrap;
 }
 
@@ -165,8 +165,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 11px;
-  letter-spacing: 0.32em;
+  font-size: 12.5px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--gold-light);
   margin-bottom: 30px;
@@ -200,8 +200,8 @@
 }
 
 .hero__subtext {
-  font-size: 16px;
-  color: rgba(243, 239, 230, 0.88);
+  font-size: 17px;
+  color: rgba(243, 239, 230, 0.92);
   max-width: 46ch;
   margin-bottom: 40px;
   line-height: 1.75;
@@ -219,8 +219,8 @@
 .hero__btn {
   background: var(--cream);
   color: var(--ink);
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 17px 34px;
   border: none;
@@ -244,8 +244,8 @@
 }
 
 .hero__link {
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--cream);
   border-bottom: 1px solid var(--gold);
@@ -276,10 +276,10 @@
 }
 
 .hero__foot-text {
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(243, 239, 230, 0.66);
+  color: rgba(243, 239, 230, 0.8);
   white-space: nowrap;
 }
 
@@ -471,9 +471,9 @@
 }
 
 .offering__text {
-  font-size: 14.5px;
-  line-height: 1.7;
-  color: rgba(243, 239, 230, 0.85);
+  font-size: 15.5px;
+  line-height: 1.72;
+  color: rgba(243, 239, 230, 0.88);
 }
 
 @media (max-width: 768px) {
@@ -563,9 +563,9 @@
 }
 
 .review-source__description {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--ink-soft);
-  line-height: 1.7;
+  line-height: 1.72;
 }
 
 @media (max-width: 768px) {
@@ -700,8 +700,8 @@
 }
 
 .contact-label {
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-light);
   margin-bottom: 10px;
@@ -710,9 +710,9 @@
 }
 
 .contact-text {
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.6;
-  color: rgba(243, 239, 230, 0.92);
+  color: rgba(243, 239, 230, 0.94);
   margin: 0;
 }
 
@@ -730,9 +730,9 @@
 }
 
 .site-footer__social a {
-  color: rgba(243, 239, 230, 0.82);
-  font-size: 12px;
-  letter-spacing: 0.16em;
+  color: rgba(243, 239, 230, 0.88);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   border-bottom: 1px solid transparent;
   padding-bottom: 3px;
@@ -750,8 +750,8 @@
   gap: 10px 22px;
   max-width: 1200px;
   margin: 0 auto 24px;
-  color: rgba(243, 239, 230, 0.82);
-  font-size: 13px;
+  color: rgba(243, 239, 230, 0.88);
+  font-size: 13.5px;
   line-height: 1.6;
   text-align: center;
 }
@@ -762,8 +762,8 @@
 
 .site-footer__bottom {
   text-align: center;
-  font-size: 12px;
-  color: rgba(243, 239, 230, 0.6);
+  font-size: 12.5px;
+  color: rgba(243, 239, 230, 0.68);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -780,10 +780,10 @@
   }
 
   .contact-label {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .contact-text {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
