@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero, Section, CtaBand } from "../components/ui";
-import { external, routes, siteConfig } from "../lib/site";
+import { externalLinks, routes, siteConfig } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Free Home Value Report",
@@ -55,7 +55,7 @@ export default function HomeValueReportPage() {
             style={{ justifyContent: "flex-start", marginTop: 20 }}
           >
             <a
-              href={external.homeValueTool}
+              href={externalLinks.homeValueTool}
               className="btn btn--solid"
               target="_blank"
               rel="noopener noreferrer"

@@ -1,4 +1,5 @@
-import { siteConfig } from "../lib/site";
+import Link from "next/link";
+import { routes } from "../lib/site";
 
 export function ClosingCta() {
   return (
@@ -12,9 +13,9 @@ export function ClosingCta() {
           Just Like Yours
         </p>
         <div className="closing-cta__ctas">
-          <a href={siteConfig.links.contact} className="closing-cta__btn">
+          <Link href={routes.contact} className="closing-cta__btn">
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </section>

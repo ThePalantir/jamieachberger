@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero, Section } from "../components/ui";
-import { routes, siteConfig } from "../lib/site";
+import { routes, siteConfig, socialLinks } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -81,16 +81,16 @@ export default function ContactPage() {
               className="site-footer__social"
               style={{ gap: 20 }}
             >
-              <a href={siteConfig.social.facebook} style={{ color: "var(--gold)" }}>
+              <a href={socialLinks.facebook} style={{ color: "var(--gold)" }}>
                 Facebook
               </a>
-              <a href={siteConfig.social.instagram} style={{ color: "var(--gold)" }}>
+              <a href={socialLinks.instagram} style={{ color: "var(--gold)" }}>
                 Instagram
               </a>
-              <a href={siteConfig.social.youtube} style={{ color: "var(--gold)" }}>
+              <a href={socialLinks.youtube} style={{ color: "var(--gold)" }}>
                 YouTube
               </a>
-              <a href={siteConfig.social.linkedin} style={{ color: "var(--gold)" }}>
+              <a href={socialLinks.linkedin} style={{ color: "var(--gold)" }}>
                 LinkedIn
               </a>
             </div>

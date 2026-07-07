@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero, Section, LinkCards, CtaBand } from "../components/ui";
-import { external, routes } from "../lib/site";
+import { externalLinks, routes } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Reviews",
@@ -14,14 +14,14 @@ const sources = [
     label: "Google Reviews",
     description:
       "Read current client reviews and public star ratings on Google.",
-    href: external.googleReviews,
+    href: externalLinks.googleReviews,
     external: true,
   },
   {
     label: "Realtor.com Profile",
     description:
       "View Jamie's verified agent profile, ratings, and license source.",
-    href: external.realtorProfile,
+    href: externalLinks.realtorProfile,
     external: true,
   },
   {
@@ -53,7 +53,7 @@ export default function ReviewsPage() {
       <CtaBand
         heading="Worked with us before?"
         body="A review helps other Lehigh Valley families find a team they can trust. We'd be grateful if you shared your experience."
-        primary={{ label: "Leave a Google Review", href: external.googleReviews, external: true }}
+        primary={{ label: "Leave a Google Review", href: externalLinks.googleReviews, external: true }}
         secondary={{ label: "Contact The Team", href: routes.contact }}
       />
     </>

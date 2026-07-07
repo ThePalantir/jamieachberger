@@ -13,7 +13,7 @@ export default function MeetTheTeamPage() {
   return (
     <>
       <PageHero
-        eyebrow="About"
+        eyebrow="Meet The Team"
         title={
           <>
             The people behind <em>every move.</em>

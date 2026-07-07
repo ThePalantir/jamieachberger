@@ -1,3 +1,17 @@
+/**
+ * Single source of truth for site URLs and navigation structure.
+ *
+ * - `routes`        → internal relative paths only (never absolute URLs)
+ * - `externalLinks` → true external service destinations only
+ *                     (lead-capture tool, IDX/MLS provider, review profiles)
+ * - `socialLinks`   → social media profiles only
+ *
+ * Header, footer, CTAs, and LinkCards must consume these constants; no
+ * component should hardcode a URL.
+ */
+
+/** Canonical production origin — used only for SEO metadata (metadataBase,
+ *  canonical, Open Graph), never for in-app navigation. */
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://jamieachberger.com";
 
@@ -6,10 +20,7 @@ export const analyticsConfig = {
   googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
 };
 
-/**
- * Internal routes for the multi-page site. Kept centralized so navigation,
- * footer, and cross-links all stay in sync.
- */
+/** Internal pages. Relative paths only. */
 export const routes = {
   home: "/",
   meetTheTeam: "/meet-the-team/",
@@ -29,22 +40,28 @@ export const routes = {
   homeValueReport: "/home-value-report/",
 };
 
-/**
- * External tools and profiles that live outside this codebase. These are the
- * real integrations (lead-capture, MLS/IDX search, review profiles, social).
- */
-export const external = {
-  // Hifello lead-capture form for the automated home value report.
+/** True external services that intentionally leave this site. */
+export const externalLinks = {
+  /** Hifello lead-capture form behind the Free Home Value Report. */
   homeValueTool:
     "https://jamieachberger.hifello.com/lp/681e12adea804e003853955e",
-  // MLS/IDX search still lives on the current provider; swap for the embedded
-  // IDX search once the provider is wired into this site.
+  /** Live MLS/IDX search — still hosted by the current provider until IDX
+   *  is embedded here. Intentional external destination. */
   mlsSearch: "https://jamieachberger.com/search-listings-2/",
+  /** Live featured-listings feed on the current provider. Intentional. */
   featuredListings: "https://jamieachberger.com/our-listings/",
   googleReviews:
     "https://www.google.com/search?q=Jamie+Achberger+-+REALTOR+reviews#lrd=0x89c43a0aefa7d681:0xe0eefd40d3cb1414,1,,,,",
   realtorProfile:
     "https://www.realtor.com/realestateagents/64f76d55705a62544ae752dc",
+};
+
+/** Social media profiles. */
+export const socialLinks = {
+  facebook: "https://www.facebook.com/jamieachbergerhomesales/",
+  instagram: "https://www.instagram.com/jamieachbergergroup/",
+  youtube: "https://www.youtube.com/channel/UCvkEQrEr7Nl5RH4ng3Kqeuw",
+  linkedin: "https://www.linkedin.com/company/jamie-achberger-group/",
 };
 
 export const siteConfig = {
@@ -64,29 +81,15 @@ export const siteConfig = {
     emailHref: "mailto:Jamie@JamieATeam.com",
     address: "1633 N 26th St, Allentown, PA 18104",
   },
-  social: {
-    facebook: "https://www.facebook.com/jamieachbergerhomesales/",
-    instagram: "https://www.instagram.com/jamieachbergergroup/",
-    youtube: "https://www.youtube.com/channel/UCvkEQrEr7Nl5RH4ng3Kqeuw",
-    linkedin: "https://www.linkedin.com/company/jamie-achberger-group/",
-  },
   assets: {
     hero: "/images/jamie-achberger-aerial-hero-frame.png",
     socialPreview: "/images/jamie-achberger-social-preview.png",
   },
-  // Kept for backwards compatibility with existing components. Prefer the
-  // `routes` and `external` exports for new code.
-  links: {
-    ...routes,
-    homeValueTool: external.homeValueTool,
-    googleReviews: external.googleReviews,
-    realtorProfile: external.realtorProfile,
-  },
 };
 
-/** Primary navigation shown in the header. */
+/** Primary header navigation, in display order. */
 export const primaryNav = [
-  { label: "About", href: routes.meetTheTeam },
+  { label: "Meet The Team", href: routes.meetTheTeam },
   { label: "Search Homes", href: routes.searchHomes },
   { label: "Buyers", href: routes.buyers },
   { label: "Sellers", href: routes.sellers },
@@ -94,16 +97,25 @@ export const primaryNav = [
   { label: "Contact", href: routes.contact },
 ];
 
-/** Grouped footer link columns. */
+/** Footer link columns, in display order. */
 export const footerNav = [
+  {
+    heading: "Explore",
+    links: [
+      { label: "Meet The Team", href: routes.meetTheTeam },
+      { label: "Reviews", href: routes.reviews },
+      { label: "Contact", href: routes.contact },
+    ],
+  },
   {
     heading: "Buyers",
     links: [
       { label: "Buyers", href: routes.buyers },
       { label: "Buying Resources", href: routes.buyingResources },
-      { label: "Preferred Lenders", href: routes.preferredLenders },
+      { label: "Search Homes", href: routes.searchHomes },
       { label: "Mortgage Calculator", href: routes.mortgageCalculator },
       { label: "Affordability Calculator", href: routes.affordabilityCalculator },
+      { label: "Preferred Lenders", href: routes.preferredLenders },
       { label: "Term Glossary", href: routes.termGlossary },
     ],
   },
@@ -114,16 +126,7 @@ export const footerNav = [
       { label: "Selling Resources", href: routes.sellingResources },
       { label: "Home Value Report", href: routes.homeValueReport },
       { label: "Home Sale Calculator", href: routes.homeSaleCalculator },
-    ],
-  },
-  {
-    heading: "Explore",
-    links: [
-      { label: "Search Listings", href: routes.searchHomes },
       { label: "Featured Listings", href: routes.featuredListings },
-      { label: "Meet The Team", href: routes.meetTheTeam },
-      { label: "Reviews", href: routes.reviews },
-      { label: "Contact", href: routes.contact },
     ],
   },
 ];

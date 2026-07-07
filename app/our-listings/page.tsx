@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero, Section, CtaBand } from "../components/ui";
-import { external, routes, siteConfig } from "../lib/site";
+import { externalLinks, routes, siteConfig } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Featured Listings",
@@ -32,7 +32,7 @@ export default function OurListingsPage() {
             style={{ justifyContent: "flex-start", marginTop: 20 }}
           >
             <a
-              href={external.featuredListings}
+              href={externalLinks.featuredListings}
               className="btn btn--solid"
               target="_blank"
               rel="noopener noreferrer"

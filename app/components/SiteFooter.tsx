@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerNav, routes, siteConfig } from "../lib/site";
+import { footerNav, routes, siteConfig, socialLinks } from "../lib/site";
 
 export function SiteFooter() {
   return (
@@ -13,10 +13,10 @@ export function SiteFooter() {
             Real estate in the {siteConfig.region} and beyond.
           </p>
           <div className="site-footer__social">
-            <a href={siteConfig.social.facebook}>Facebook</a>
-            <a href={siteConfig.social.instagram}>Instagram</a>
-            <a href={siteConfig.social.youtube}>YouTube</a>
-            <a href={siteConfig.social.linkedin}>LinkedIn</a>
+            <a href={socialLinks.facebook}>Facebook</a>
+            <a href={socialLinks.instagram}>Instagram</a>
+            <a href={socialLinks.youtube}>YouTube</a>
+            <a href={socialLinks.linkedin}>LinkedIn</a>
           </div>
         </div>
 

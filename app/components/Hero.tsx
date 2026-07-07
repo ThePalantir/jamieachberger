@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { siteConfig } from "../lib/site";
+import Link from "next/link";
+import { routes, siteConfig } from "../lib/site";
 
 export function Hero() {
   return (
@@ -30,15 +31,15 @@ export function Hero() {
           helped hundreds sell and buy their homes.
         </p>
         <div className="hero__ctas">
-          <a
-            href={siteConfig.links.homeValueReport}
+          <Link
+            href={routes.homeValueReport}
             className="hero__btn hero__btn--primary"
           >
             Free Home Value Report
-          </a>
-          <a href={siteConfig.links.searchHomes} className="hero__link">
+          </Link>
+          <Link href={routes.searchHomes} className="hero__link">
             Start Your Search
-          </a>
+          </Link>
         </div>
       </div>
 

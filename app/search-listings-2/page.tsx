@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero, Section, LinkCards, CtaBand } from "../components/ui";
-import { external, routes, siteConfig } from "../lib/site";
+import { externalLinks, routes, siteConfig } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Search Homes",
@@ -50,7 +50,7 @@ export default function SearchListingsPage() {
             style={{ justifyContent: "flex-start", marginTop: 20 }}
           >
             <a
-              href={external.mlsSearch}
+              href={externalLinks.mlsSearch}
               className="btn btn--solid"
               target="_blank"
               rel="noopener noreferrer"

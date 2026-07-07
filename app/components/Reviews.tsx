@@ -1,21 +1,21 @@
-import { siteConfig } from "../lib/site";
+import { externalLinks, routes } from "../lib/site";
 
 export function Reviews() {
   const reviewSources = [
     {
       label: "Google Reviews",
       description: "Read current client reviews and public ratings.",
-      href: siteConfig.links.googleReviews,
+      href: externalLinks.googleReviews,
     },
     {
       label: "Realtor.com Profile",
       description: "View Jamie's verified agent profile and license source.",
-      href: siteConfig.links.realtorProfile,
+      href: externalLinks.realtorProfile,
     },
     {
       label: "Meet The Team",
       description: "Learn more about the Jamie Achberger Group.",
-      href: siteConfig.links.meetTheTeam,
+      href: routes.meetTheTeam,
     },
   ];
 
