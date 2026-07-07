@@ -11,6 +11,7 @@ export function Hero() {
           alt=""
           fill
           priority
+          quality={90}
           sizes="100vw"
           className="hero__image"
         />

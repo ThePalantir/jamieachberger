@@ -32,7 +32,7 @@ export function MotionObserver() {
         ? Array.from(el.parentElement.children)
         : [];
       const index = Math.max(siblings.indexOf(el), 0);
-      el.style.setProperty("--reveal-delay", `${Math.min(index * 70, 420)}ms`);
+      el.style.setProperty("--reveal-delay", `${Math.min(index * 60, 280)}ms`);
     }
 
     document.documentElement.classList.add("has-motion");
@@ -49,22 +49,29 @@ export function MotionObserver() {
       );
     };
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            reveal(entry.target as HTMLElement);
-            io.unobserve(entry.target);
+    // Fail-open: if IntersectionObserver is unavailable or errors, reveal
+    // everything immediately rather than risk permanently hidden content.
+    let io: IntersectionObserver | null = null;
+    try {
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              reveal(entry.target as HTMLElement);
+              io!.unobserve(entry.target);
+            }
           }
-        }
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-    );
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      );
+    } catch {
+      io = null;
+    }
 
     for (const el of els) {
       // Anything already in view on load reveals immediately (no pop-in).
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.92) {
+      if (!io || rect.top < window.innerHeight * 0.92) {
         reveal(el);
       } else {
         io.observe(el);
@@ -72,7 +79,7 @@ export function MotionObserver() {
     }
 
     return () => {
-      io.disconnect();
+      io?.disconnect();
       timeouts.forEach(clearTimeout);
     };
   }, []);

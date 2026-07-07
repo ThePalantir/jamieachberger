@@ -804,22 +804,26 @@
 }
 .team-member__header {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 24px;
+  grid-template-columns: 160px 1fr;
+  gap: 28px;
   align-items: center;
-  margin-bottom: 26px;
+  margin-bottom: 28px;
 }
+/* Portrait mounted like a plate: a single offset gold keyline echoing the
+   editorial framing motif used across the site. */
 .team-member__photo {
   position: relative;
   aspect-ratio: 1 / 1.08;
   overflow: hidden;
   background: #272219;
-  outline: 1px solid rgba(243, 239, 230, 0.18);
+  outline: 1px solid rgba(150, 118, 42, 0.6);
+  outline-offset: 5px;
+  margin: 6px;
 }
 .team-member__image {
   object-fit: cover;
   object-position: center top;
-  filter: saturate(0.96) contrast(1.04) brightness(1.03);
+  filter: saturate(0.98) contrast(1.05);
 }
 .team-member__body {
   width: 100%;
@@ -847,8 +851,19 @@
 .team-member__bio:last-child {
   margin-bottom: 0;
 }
+/* Personal aside ("Foodie fact") set as a quiet editorial note rather than
+   bold shouting: italic display face, gold, hairline above. */
 .team-member__bio strong {
-  font-weight: 800;
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  color: var(--gold);
+  border-top: 1px solid var(--hairline);
+  padding-top: 14px;
+  margin-top: 4px;
 }
 .section--ink .team-member__name {
   color: var(--cream);
@@ -857,7 +872,8 @@
   color: rgba(243, 239, 230, 0.92);
 }
 .section--ink .team-member__bio strong {
-  color: #fff7df;
+  color: var(--gold-light);
+  border-top-color: rgba(243, 239, 230, 0.16);
 }
 
 /* ---- Responsive ---- */
@@ -967,4 +983,18 @@
 .has-motion .contact-detail:not(.is-in) {
   opacity: 0;
   transform: translateY(20px);
+}
+
+/* Print (and any non-interactive rendering) must always show content. */
+@media print {
+  .has-motion .offering,
+  .has-motion .review-source,
+  .has-motion .link-card,
+  .has-motion .feature,
+  .has-motion .step,
+  .has-motion .team-member,
+  .has-motion .contact-detail {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

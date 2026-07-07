@@ -1,12 +1,14 @@
 /* ============ SiteHeader ============ */
 .site-header {
   border-bottom: 1px solid var(--hairline);
-  background: rgba(243, 239, 230, 0.92);
+  background: rgba(243, 239, 230, 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 100;
+  /* Soft drop separates the bar from the cinematic hero below. */
+  box-shadow: 0 10px 30px -24px rgba(23, 21, 15, 0.5);
 }
 
 .site-header__inner {
@@ -20,8 +22,8 @@
 
 .site-header__logo {
   font-family: var(--font-display);
-  font-size: 17px;
-  letter-spacing: 0.07em;
+  font-size: 18px;
+  letter-spacing: 0.06em;
   font-weight: 500;
   color: var(--ink);
 }
@@ -34,17 +36,17 @@
 
 .site-header__nav {
   display: flex;
-  gap: 28px;
+  gap: 30px;
 }
 
 .site-header__nav a {
-  font-size: 13.5px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
   font-weight: 600;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
   transition: color 200ms ease, border-color 200ms ease;
 }
 
@@ -78,7 +80,7 @@
    elements simply render in place. */
 @keyframes hero-settle {
   from {
-    transform: scale(1.07);
+    transform: scale(1.045);
   }
   to {
     transform: scale(1);
@@ -123,9 +125,11 @@
 .hero__image {
   object-fit: cover;
   object-position: center 42%;
-  filter: saturate(1.05) contrast(1.03);
+  /* Slightly stronger contrast for perceived sharpness; the settle zoom is
+     kept shallow (1.045) and will-change is deliberately omitted so the
+     browser re-rasterizes the image crisply once the motion ends. */
+  filter: saturate(1.05) contrast(1.06);
   animation: hero-settle 7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  will-change: transform;
 }
 
 /* Layered scrim: ink rises from the lower-left where the copy sits, a
