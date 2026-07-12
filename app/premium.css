@@ -586,6 +586,13 @@ body {
 .team-member { background: var(--cream); border: 1px solid var(--hairline); padding: 38px; }
 .team-member__photo { background: linear-gradient(145deg, #d8cebd, #eee7dc); }
 .team-member__name { font-size: 37px; }
+.section--ink .team-member__name { color: var(--ink); }
+.section--ink .team-member__bio { color: var(--ink-soft); }
+.section--ink .team-member__bio strong {
+  color: var(--gold);
+  border-top-color: var(--hairline);
+}
+.section--ink .section-lead { color: rgba(244,240,231,.76); }
 
 .site-footer { padding: 88px var(--page-pad) 36px; }
 .site-footer__top { max-width: 1380px; }
