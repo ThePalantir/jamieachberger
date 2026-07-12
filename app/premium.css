@@ -86,91 +86,6 @@ body {
   animation: premium-flyover-light 18s ease-in-out both;
 }
 
-.hero__flightpath {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(5vw, 2vh, 0) scale(1.05);
-  animation: premium-flightpath 18s var(--ease-luxe) both;
-}
-
-.hero__flightline {
-  position: absolute;
-  left: 47%;
-  top: 17%;
-  width: 34%;
-  height: 42%;
-  border-top: 1px solid rgba(221, 192, 138, 0.72);
-  border-right: 1px solid rgba(221, 192, 138, 0.42);
-  transform: rotate(18deg) skewX(-18deg);
-  transform-origin: left top;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 72%, transparent 100%);
-}
-
-.hero__flightline::after {
-  content: "";
-  position: absolute;
-  right: -7px;
-  bottom: -7px;
-  width: 13px;
-  height: 13px;
-  border: 1px solid rgba(221, 192, 138, 0.86);
-  transform: rotate(45deg);
-  background: rgba(21, 20, 15, 0.18);
-}
-
-.hero__pin {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(244, 240, 231, 0.74);
-  font-size: 9px;
-  font-weight: 650;
-  letter-spacing: 0.2em;
-  line-height: 1;
-  text-transform: uppercase;
-  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.42);
-}
-
-.hero__pin::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border: 1px solid rgba(221, 192, 138, 0.9);
-  background: rgba(221, 192, 138, 0.2);
-  transform: rotate(45deg);
-}
-
-.hero__pin--allentown { left: 55%; top: 34%; }
-.hero__pin--bethlehem { left: 69%; top: 45%; }
-.hero__pin--easton { left: 80%; top: 55%; }
-
-.hero__altitude {
-  position: absolute;
-  right: var(--page-pad);
-  bottom: 116px;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: rgba(244, 240, 231, 0.72);
-  font-size: 9px;
-  font-weight: 650;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  opacity: 0;
-  animation: hero-rise 900ms var(--ease-luxe) 950ms both;
-}
-
-.hero__altitude i {
-  width: clamp(78px, 10vw, 150px);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(221,192,138,.08), rgba(221,192,138,.85), rgba(221,192,138,.08));
-}
-
 .hero__scrim {
   background:
     linear-gradient(90deg, rgba(12, 12, 9, 0.88) 0%, rgba(12, 12, 9, 0.66) 31%, rgba(12, 12, 9, 0.12) 62%, rgba(12, 12, 9, 0.02) 100%),
@@ -200,12 +115,6 @@ body {
   30% { opacity: 0.72; transform: translate3d(-4%, 2%, 0) rotate(-2deg); }
   72% { opacity: 0.54; }
   100% { opacity: 0.22; transform: translate3d(8%, -3%, 0) rotate(-2deg); }
-}
-
-@keyframes premium-flightpath {
-  0%, 12% { opacity: 0; transform: translate3d(7vw, 3vh, 0) scale(1.09); }
-  30% { opacity: .72; }
-  100% { opacity: .54; transform: translate3d(-2vw, -1vh, 0) scale(0.99); }
 }
 
 .hero__content {
@@ -270,28 +179,6 @@ body {
   max-width: 1500px;
   margin: 0 auto;
   padding: 0 var(--page-pad) 30px;
-}
-
-.hero__flyover {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(244,240,231,.7);
-  font-size: 9px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.hero__flyover i {
-  width: 1px;
-  height: 28px;
-  background: linear-gradient(var(--gold-light), transparent);
-  animation: flyover-pulse 2.2s ease-in-out infinite;
-}
-
-@keyframes flyover-pulse {
-  50% { transform: translateY(7px); opacity: .4; }
 }
 
 .home-kicker { color: var(--gold); margin-bottom: 30px; }
@@ -625,17 +512,7 @@ body {
     animation-name: premium-flyover-mobile;
   }
   .hero__media::before { opacity: .26; animation-duration: 15s; }
-  .hero__flightpath { display: none; }
-  .hero__altitude {
-    right: 22px;
-    bottom: 72px;
-    gap: 9px;
-    font-size: 8px;
-    letter-spacing: .16em;
-  }
-  .hero__altitude i { width: 58px; }
   .hero__foot { padding: 0 22px 20px; }
-  .hero__flyover { display: none; }
   .hero__foot-text { text-align: right; }
   .home-intro { padding: 90px 24px 70px; }
   .home-intro h2, .team-feature h2, .home-resources h2 { font-size: 43px; }
@@ -674,10 +551,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .hero__image,
-  .hero__media::before,
-  .hero__flightpath,
-  .hero__altitude,
-  .hero__flyover i {
+  .hero__media::before {
     animation: none;
   }
 
@@ -685,8 +559,7 @@ body {
     transform: none;
   }
 
-  .hero__media::before,
-  .hero__flightpath {
+  .hero__media::before {
     opacity: .34;
   }
 }

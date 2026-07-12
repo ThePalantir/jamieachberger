@@ -15,17 +15,6 @@ export function Hero() {
           sizes="100vw"
           className="hero__image"
         />
-        <div className="hero__flightpath">
-          <span className="hero__flightline" />
-          <span className="hero__pin hero__pin--allentown">Allentown</span>
-          <span className="hero__pin hero__pin--bethlehem">Bethlehem</span>
-          <span className="hero__pin hero__pin--easton">Easton</span>
-        </div>
-        <div className="hero__altitude">
-          <span>Flyover</span>
-          <i />
-          <span>Valley overview</span>
-        </div>
         <div className="hero__scrim" />
       </div>
 
@@ -56,7 +45,6 @@ export function Hero() {
       </div>
 
       <div className="hero__foot" aria-hidden="true">
-        <span className="hero__flyover"><i /> Scroll to explore</span>
         <span className="hero__foot-line" />
         <span className="hero__foot-text">
           Allentown · Bethlehem · Easton · Emmaus · Macungie
