@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Progressive-enhancement scroll reveals. On mount (JS available, motion
@@ -21,6 +22,8 @@ const SELECTOR = [
 ].join(", ");
 
 export function MotionObserver() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -82,7 +85,7 @@ export function MotionObserver() {
       io?.disconnect();
       timeouts.forEach(clearTimeout);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
