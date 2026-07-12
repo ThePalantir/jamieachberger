@@ -82,7 +82,7 @@ export const siteConfig = {
     address: "1633 N 26th St, Allentown, PA 18104",
   },
   assets: {
-    hero: "/images/jamie-achberger-aerial-hero-frame.png",
+    hero: "/images/jamie-achberger-aerial-golden-hour-v2.png",
     socialPreview: "/images/jamie-achberger-social-preview.png",
   },
 };

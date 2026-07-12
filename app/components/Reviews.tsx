@@ -22,9 +22,9 @@ export function Reviews() {
   return (
     <section className="reviews">
       <div className="reviews__inner">
-        <h2 className="reviews__heading">What Our Clients Say About Us!</h2>
+        <h2 className="reviews__heading">A reputation built, one move at a time.</h2>
         <p className="reviews__intro">
-          Real client feedback is linked directly to its public source.
+          Explore current client feedback and independently published profiles.
         </p>
         <div className="review-sources">
           {reviewSources.map((source) => (

@@ -15,6 +15,17 @@ export function Hero() {
           sizes="100vw"
           className="hero__image"
         />
+        <div className="hero__flightpath">
+          <span className="hero__flightline" />
+          <span className="hero__pin hero__pin--allentown">Allentown</span>
+          <span className="hero__pin hero__pin--bethlehem">Bethlehem</span>
+          <span className="hero__pin hero__pin--easton">Easton</span>
+        </div>
+        <div className="hero__altitude">
+          <span>Flyover</span>
+          <i />
+          <span>Valley overview</span>
+        </div>
         <div className="hero__scrim" />
       </div>
 
@@ -24,12 +35,12 @@ export function Hero() {
           Greater Lehigh Valley
         </p>
         <h1 className="hero__headline">
-          Your Go-To Real Estate Team in the Greater Lehigh Valley{" "}
-          <em>and beyond.</em>
+          The Greater Lehigh Valley,<br />
+          <em>beautifully within reach.</em>
         </h1>
         <p className="hero__subtext">
-          It's not our first time. Not even the 100th. Over the years, we've
-          helped hundreds sell and buy their homes.
+          Your go-to real estate team for a move that feels informed,
+          personal, and entirely your own.
         </p>
         <div className="hero__ctas">
           <Link
@@ -45,6 +56,7 @@ export function Hero() {
       </div>
 
       <div className="hero__foot" aria-hidden="true">
+        <span className="hero__flyover"><i /> Scroll to explore</span>
         <span className="hero__foot-line" />
         <span className="hero__foot-text">
           Allentown · Bethlehem · Easton · Emmaus · Macungie

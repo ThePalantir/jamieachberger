@@ -5,16 +5,18 @@ export function ClosingCta() {
   return (
     <section className="closing-cta">
       <div className="closing-cta__inner">
-        <h2 className="closing-cta__heading">We are Here For You!</h2>
+        <h2 className="closing-cta__heading">
+          Let&apos;s make your next move feel like the right one.
+        </h2>
         <p className="closing-cta__text">
-          We've helped Countless Families in the Lehigh Valley and beyond —
+          Hundreds of families across the Lehigh Valley and beyond have trusted us —
         </p>
         <p className="closing-cta__text closing-cta__text--emphasis">
-          Just Like Yours
+          your story can be next.
         </p>
         <div className="closing-cta__ctas">
           <Link href={routes.contact} className="closing-cta__btn">
-            Contact Us
+            Start a conversation
           </Link>
         </div>
       </div>

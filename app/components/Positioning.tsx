@@ -3,9 +3,11 @@ export function Positioning() {
     <section className="positioning">
       <div className="positioning__inner">
         <div className="positioning__content">
-          <h2 className="positioning__heading">Are you Selling or Buying?</h2>
+          <h2 className="positioning__heading">
+            Selling or buying, expect a better experience.
+          </h2>
           <p className="positioning__subheading">
-            We will make finding or selling your home quick and effortless!
+            Thoughtful guidance. Modern marketing. A team that stays close.
           </p>
           <p className="positioning__description">
             Whether you're buying your first home, upgrading, downsizing, or

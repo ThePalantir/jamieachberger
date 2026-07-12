@@ -8,6 +8,7 @@ import { analyticsConfig, siteConfig, siteUrl } from "./lib/site";
 import "./globals.css";
 import "./components.css";
 import "./pages.css";
+import "./premium.css";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
